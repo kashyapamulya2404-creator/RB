@@ -105,14 +105,15 @@ elif page=="📊 Analysis":
 
 
 
-           fig,ax=plt.subplots(figsize=(3,2.2))
-fpr,tpr,_=roc_curve(y_test,probs)
-ax.plot(fpr,tpr, linewidth=1.2, label=f"AUC≈{np.trapz(tpr,fpr):.2f}")
-ax.plot([0,1],[0,1],'--', linewidth=0.7)
-ax.set_title(f"{name} – ROC Curve", fontsize=9)
-ax.tick_params(labelsize=7)
-ax.legend(fontsize='x-small')
-cols[idx%2].pyplot(fig); idx+=1
+                   fig, ax = plt.subplots(figsize=(3, 2.2))
+        fpr, tpr, _ = roc_curve(y_test, probs)
+        ax.plot(fpr, tpr, linewidth=1.2)
+        ax.plot([0, 1], [0, 1], '--', linewidth=0.7)
+        ax.set_title(f"{name} – ROC Curve", fontsize=9)
+        ax.tick_params(labelsize=7)
+        cols[idx % 2].pyplot(fig)
+        idx += 1
+
 
 
             rep=classification_report(y_test,preds,output_dict=True)
