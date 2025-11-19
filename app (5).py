@@ -95,11 +95,14 @@ elif page=="📊 Analysis":
             preds=m.predict(X_test)
             probs=m.predict_proba(X_test)[:,1]
 
-          fig,ax=plt.subplots(figsize=(3,2.2))
-sns.heatmap(confusion_matrix(y_test,preds), annot=True, fmt="d", cmap="Spectral", ax=ax)
-ax.set_title(f"{name} – Confusion Matrix", fontsize=9)
-ax.tick_params(labelsize=7)
-cols[idx%2].pyplot(fig); idx+=1
+            fig, ax = plt.subplots(figsize=(3, 2.2))
+            sns.heatmap(confusion_matrix(y_test, preds),
+                        annot=True, fmt="d", cmap="Spectral", ax=ax)
+            ax.set_title(f"{name} – Confusion Matrix", fontsize=9)
+            ax.tick_params(labelsize=7)
+            cols[idx % 2].pyplot(fig)
+            idx += 1
+
 
 
            fig,ax=plt.subplots(figsize=(3,2.2))
